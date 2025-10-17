@@ -24,8 +24,8 @@ public class Separator {
         }
     }
 
-    int[] getNums(String add_str) {
-        String[] nums_str = add_str.split(regex_str); // 정규식 형태로 정의된 구분자 삽입 후 split.
+    int[] getNums() {
+        String[] nums_str = input_str.split(regex_str); // 정규식 형태로 정의된 구분자 삽입 후 split.
         int[] nums = new int[nums_str.length];
 
         try {
