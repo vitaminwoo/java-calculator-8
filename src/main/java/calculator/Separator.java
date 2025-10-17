@@ -4,17 +4,28 @@ public class Separator {
 
     String input_str;
     String regex_str;
+    String custom_regex;
 
     Separator(String input_str) {
         this.input_str = input_str;
     }
 
     void setRegex() {
-        regex_str = ",|:"; // 구분자 필드로 따로 명시.
+        regex_str = ",|:"; // 구분자를 정규식 형태로 정의.
+    }
+
+    void checkCustomRegex() {
+        String regex_check = "//|\\\\n";
+        String[] check_custom = input_str.split(regex_check);
+        if (check_custom.length != 1) {
+            custom_regex = check_custom[1];
+            regex_str = regex_str + "|" + custom_regex;
+            input_str = check_custom[2];
+        }
     }
 
     int[] getNums(String add_str) {
-        String[] nums_str = add_str.split(regex_str); // 이 구분자를 따로 변수로 명시해주면 더 좋을듯.정규표현식이라는 개념.
+        String[] nums_str = add_str.split(regex_str); // 정규식 형태로 정의된 구분자 삽입 후 split.
         int[] nums = new int[nums_str.length];
 
         try {
@@ -33,7 +44,6 @@ public class Separator {
             nums = null;
         }
         return nums;
-
     }
 
 }
