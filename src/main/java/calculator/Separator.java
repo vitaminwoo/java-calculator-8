@@ -28,20 +28,14 @@ public class Separator {
         String[] nums_str = input_str.split(regex_str); // 정규식 형태로 정의된 구분자 삽입 후 split.
         int[] nums = new int[nums_str.length];
 
-        try {
-            for (int i = 0; i < nums_str.length; i++) {
+
+        for (int i = 0; i < nums_str.length; i++) {
                 int num = Integer.parseInt(nums_str[i]);
                 if (num < 0) {
                     throw new IllegalArgumentException();
                 }
                 //            System.out.println(num);
                 nums[i] = num;
-            }
-        } catch (IllegalArgumentException e) {
-            nums = null;
-            System.out.println("IllegalArgumentException");
-        } catch (Exception e) {
-            nums = null;
         }
         return nums;
     }
