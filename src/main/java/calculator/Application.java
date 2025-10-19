@@ -12,11 +12,9 @@ public class Application {
         separator.checkCustomRegex();
         int[] intList = separator.getNums();
 
-        if (intList != null) {
-            Calculator calculator = new Calculator(intList);
-            int result = calculator.plusNums();
-            System.out.println("결과 : " + result);
-        }
+        Calculator calculator = new Calculator(intList);
+        int result = calculator.plusNums();
 
+        System.out.println("결과 : " + result);
     }
 }
